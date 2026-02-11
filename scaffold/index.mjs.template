@@ -10,8 +10,10 @@ import { program } from 'commander';
  */
 export function registerCommands(program) {
   program
+    .name('{{name}}')
     .version('1.0.0')
-    .description('{{description}}');
+    .description('{{description}}')
+    .addHelpCommand('help [command]', 'Display help for a command');
 
   program
     .command('configure')
@@ -27,11 +29,12 @@ export function registerCommands(program) {
  * Main entry point for the CLI application
  */
 export async function main() {
-  // When run without commands, show the interactive menu
+  const cli = registerCommands(program);
+
+  // When run without arguments, show the interactive menu
   if (process.argv.length <= 2) {
     showMainMenu();
   } else {
-    const cli = registerCommands(program);
     cli.parse(process.argv);
   }
 }

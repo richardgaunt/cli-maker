@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 import { Command } from 'commander';
 import { createCommand } from './src/commands/create.mjs';

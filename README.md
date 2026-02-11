@@ -1,20 +1,20 @@
-# 🚀 Create CLI Template
+# Create CLI Template
 
-A starter kit generator for CLI applications. This tool helps you quickly scaffold a new command-line interface application with all the necessary configurations.
+A starter kit generator for CLI applications. This tool helps you quickly scaffold a new command-line interface application with configurations.
 
-[![Tests](https://github.com/richardgaunt/cli-starter/actions/workflows/tests.yml/badge.svg)](https://github.com/richardgaunt/cli-starter/actions/workflows/tests.yml)
+[![Tests](https://github.com/richardgaunt/cli-maker/actions/workflows/test.yml/badge.svg)](https://github.com/richardgaunt/cli-maker/actions/workflows/test.yml)
 
 
-## ✨ Features
+## Features
 
-- 📂 Generates a complete CLI application structure
-- 🧪 Sets up testing with Jest
-- 🔍 Configures ESLint for code quality
-- 🔄 Initializes Git repository
-- 🛠️ Sets up Command parsing with Commander.js
-- 💬 User input handling with Inquirer
+- Generates a complete CLI application structure
+- Sets up testing with Jest
+- Configures ESLint for code quality
+- Initializes Git repository
+- Sets up Command parsing with Commander.js
+- User input handling with Inquirer
 
-## 📋 Installation
+## Installation
 
 ```bash
 # Install globally
@@ -30,7 +30,7 @@ npm install
 npm link
 ```
 
-## 🚀 Usage
+## Usage
 
 ```bash
 # Create a new CLI application with interactive prompts
@@ -46,14 +46,14 @@ create-cli-template my-cli-app --no-git
 create-cli-template my-cli-app --no-install
 ```
 
-## ⚙️ CLI Options
+## CLI Options
 
 - `[name]` - Project directory/package name (optional)
 - `-y, --yes` - Skip all prompts and use defaults
 - `--no-git` - Skip git initialization
 - `--no-install` - Skip dependency installation
 
-## 💬 Configuration Prompts
+## Configuration steps
 
 When creating a new CLI application, you'll be asked for:
 
@@ -63,7 +63,7 @@ When creating a new CLI application, you'll be asked for:
 4. **Author**: Your name (defaults to Git config)
 5. **License**: The license to use (MIT, ISC, Apache-2.0, GPL-3.0)
 
-## 📂 Generated Project Structure
+## Generated Project Structure
 
 ```
 my-cli-app/
@@ -81,86 +81,7 @@ my-cli-app/
 └── README.md
 ```
 
-## 🧪 Testing Strategy
-
-This project uses a sophisticated approach to testing interactive CLI applications:
-
-### Timing-Based Testing
-
-The core of our testing framework is a timing-based approach that reliably interacts with CLI prompts:
-
-```javascript
-function testCLITiming({ command, args, inputs, cwd, timeout, debug }) {
-  // Spawn the process
-  // Send inputs with fixed timing
-  // Collect and verify output
-}
-```
-
-Key advantages:
-- More reliable than prompt detection methods
-- Works with complex, nested prompts
-- Simpler to maintain and extend
-- Handles ANSI color codes and formatting
-
-### Test Suites
-
-We've organized tests into different suites to cover all aspects of CLI functionality:
-
-- **Basic Functionality**: Tests that the CLI generator works correctly
-- **Error Handling**: Verifies the CLI responds gracefully to invalid inputs
-- **Scaffolded Features**: Tests the CLI applications created by the generator
-- **End-to-End**: Tests the full workflow from generation to usage
-
-### Running Tests
-
-Tests can be run individually or all at once:
-
-```bash
-# Run all tests
-npm test
-
-# Run specific test suites
-npm run test:timing      # Run timing-based CLI tests
-npm run test:errors      # Run error handling tests
-npm run test:features    # Run scaffolded CLI feature tests
-npm run test:all         # Run all test suites
-```
-
-### Writing New Tests
-
-To add new tests for CLI functionality:
-
-1. Use the `testCLITiming` function in your test files
-2. Define the command to run and input sequence
-3. Verify the output matches expectations
-
-Example:
-```javascript
-test('Create CLI application with custom inputs', async () => {
-  const inputs = [
-    'my-app',           // Project name
-    'My Application',   // Title
-    'A test app',       // Description
-    'Test Author',      // Author
-    '',                 // License (default)
-  ];
-
-  const result = await testCLITiming({
-    command: 'node',
-    args: [path.join(rootDir, 'bin/index.js')],
-    inputs,
-    cwd: tempDir,
-    timeout: 30000,
-    debug: false
-  });
-
-  expect(result.code).toBe(0);
-  expect(result.stdout).toContain('created successfully');
-});
-```
-
-## 🛠️ Development
+## Development
 
 ```bash
 # Clone this repository
@@ -189,6 +110,6 @@ npm run test:all
 npm run lint
 ```
 
-## 📄 License
+## License
 
 MIT © Richard Gaunt

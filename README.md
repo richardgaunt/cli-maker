@@ -18,14 +18,14 @@ A starter kit generator for CLI applications. This tool helps you quickly scaffo
 
 ```bash
 # Install globally
-npm install -g create-cli-template
+npm install -g @richardgaunt/cli-template
 
 # Or use directly with npx
-npx create-cli-template my-cli-app
+npx @richardgaunt/cli-template my-cli-app
 
 # For development
 git clone <repository-url>
-cd create-cli-template
+cd cli-maker
 npm install
 npm link
 ```
@@ -34,16 +34,16 @@ npm link
 
 ```bash
 # Create a new CLI application with interactive prompts
-create-cli-template my-cli-app
+create-cli my-cli-app
 
 # Skip prompts and use defaults
-create-cli-template my-cli-app --yes
+create-cli my-cli-app --yes
 
 # Skip git initialization
-create-cli-template my-cli-app --no-git
+create-cli my-cli-app --no-git
 
 # Skip dependency installation
-create-cli-template my-cli-app --no-install
+create-cli my-cli-app --no-install
 ```
 
 ## CLI Options
@@ -86,7 +86,7 @@ my-cli-app/
 ```bash
 # Clone this repository
 git clone <repository-url>
-cd create-cli-template
+cd cli-maker
 
 # Install dependencies
 npm install
@@ -95,7 +95,7 @@ npm install
 npm link
 
 # Run the CLI
-create-cli-template test-app
+create-cli test-app
 
 # Run tests
 npm test
